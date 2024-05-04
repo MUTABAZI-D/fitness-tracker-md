@@ -1,0 +1,12 @@
+// DELETE THIS AFTER YOU CREATE THE FIRST COMPONENT INSIDE THIS FOLDER
+
+/*
+    THIS FOLDER WILL CONTAIN COMPONENTS THAT ARE USED TO DESIGN THE APP's LAYOUT.
+    EX: SIDEBAR, HEADER, etc.
+*/
+
+const Layout = () => {
+  return <div>Layout</div>;
+};
+
+export default Layout;

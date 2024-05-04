@@ -1,0 +1,12 @@
+// DELETE THIS AFTER YOU CREATE THE FIRST COMPONENT INSIDE THIS FOLDER
+
+/*
+    THIS FOLDER WILL CONTAIN COMPONENTS THAT ARE COMMONLY USED THROUGHOUT THE APP.
+    EX: BUTTON, TABLE, MODAL etc.
+*/
+
+const Common = () => {
+  return <div>Common</div>;
+};
+
+export default Common;
