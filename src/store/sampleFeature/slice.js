@@ -12,7 +12,7 @@ export const sampleSlice = createSlice({
   name: 'sample',
   initialState,
   reducers: {
-    getMyData(state) {
+    getMyData: (state) => {
       state.myData = MY_DATA_CONSTANT;
     },
   },

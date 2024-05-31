@@ -1,20 +1,28 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import { Home } from '@mui/icons-material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMyData } from '../store/sampleFeature/selectors';
 import { getMyData } from '../store/sampleFeature/slice';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../store/authFeature/authSlice';
 
-const HomePage = () => {
+export const HomePage = () => {
   const dispatch = useDispatch();
   const myData = useSelector(selectMyData);
 
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getMyData());
   }, []);
 
+  function handleLogOut() {
+    dispatch(logout());
+    navigate('/login');
+  }
+
   return (
-    <Stack alignItems="center" gap={4} p={3}>
+    <Stack alignItems="center" spacing={4} p={3}>
       <Typography
         sx={{
           display: 'flex',
@@ -24,6 +32,7 @@ const HomePage = () => {
         }}
         variant="body1"
         textAlign="center"
+        color="primary.main"
       >
         <Home />
         HomePage
@@ -34,8 +43,15 @@ const HomePage = () => {
           <p key={item.id}>{`${item.name} ${item.id}`}</p>
         ))}
       </Box>
+      <Box>
+        <Button
+          variant="contained"
+          onClick={handleLogOut}
+          sx={{ textTransform: 'none' }}
+        >
+          Log out
+        </Button>
+      </Box>
     </Stack>
   );
 };
-
-export default HomePage;
