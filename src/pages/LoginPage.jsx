@@ -36,25 +36,14 @@ export const LoginPage = () => {
     e.preventDefault();
   }
   const onSubmit = (data) => {
-    const envUsername = import.meta.env.VITE_USERNAME;
-    const envPassword = import.meta.env.VITE_PASSWORD;
+    const envUsername = import.meta.env.VITE_ADMIN_USERNAME;
+    const envPassword = import.meta.env.VITE_ADMIN_PASSWORD;
     if (envUsername === data.username && envPassword === data.password) {
       dispatch(login());
-      toast.success('Login successful', {
-        style: { backgroundColor: 'green', color: 'white' },
-      });
+      toast.success('Login successful');
       navigate('/home', { replace: true });
     } else {
-      toast.error('Login failed: Incorrect username or password', {
-        style: {
-          backgroundColor: '#FF0000',
-          color: 'white',
-          fontSize: '12px',
-        },
-        progressStyle: {
-          backgroundColor: '#ffeb3b',
-        },
-      });
+      toast.error('Login failed: Incorrect username or password');
     }
   };
 
