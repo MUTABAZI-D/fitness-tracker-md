@@ -7,19 +7,14 @@ import {
 import { HomePage } from './pages/HomePage.jsx';
 import { LoginPage } from './pages/LoginPage.jsx';
 import { ProtectedRoutes } from './context/ProtectedRoutes.jsx';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { handleToken } from './store/authFeature/authSlice.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthSync } from './context/AuthSync.jsx';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(handleToken());
-  }, []);
   return (
     <>
+      <AuthSync />
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
@@ -34,7 +29,7 @@ function App() {
           />
         </Routes>
       </Router>
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={2000} />
     </>
   );
 }

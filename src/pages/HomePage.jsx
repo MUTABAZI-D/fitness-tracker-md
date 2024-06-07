@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectMyData } from '../store/sampleFeature/selectors';
 import { getMyData } from '../store/sampleFeature/slice';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../store/authFeature/authSlice';
+import { deleteToken, logout } from '../store/authFeature/authSlice';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ export const HomePage = () => {
 
   function handleLogOut() {
     dispatch(logout());
+    dispatch(deleteToken());
     navigate('/login');
   }
 
