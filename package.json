@@ -16,10 +16,13 @@
     "@mui/material": "^5.15.5",
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.5",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "react-redux": "^9.1.0",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -36,7 +39,7 @@
     "prettier": "^3.2.4",
     "prettier-plugin-organize-imports": "^3.2.4",
     "react-error-overlay": "^6.0.11",
-    "vite": "^5.0.8",
+    "vite": "^5.2.11",
     "vite-plugin-checker": "^0.6.2"
   }
 }
