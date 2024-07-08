@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "age": "28",
+      "weight": "75",
+      "height": "180",
+      "location": "New York, USA",
+      "phone": "+1-555-1234",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "age": "32",
+      "weight": "65",
+      "height": "165",
+      "location": "London, UK",
+      "phone": "+44-20-1234-5678",
+      "email": "jane.smith@example.co.uk"
+    },
+    {
+      "id": "3",
+      "name": "Carlos Martinez",
+      "age": "24",
+      "weight": "68",
+      "height": "175",
+      "location": "Madrid, Spain",
+      "phone": "+34-91-123-4567",
+      "email": "carlos.martinez@example.es"
+    },
+    {
+      "id": "4",
+      "name": "Takehiro Tomiyasu",
+      "age": "29",
+      "weight": "70",
+      "height": "170",
+      "location": "Tokyo, Japan",
+      "phone": "+81-3-1234-5678",
+      "email": "takehiro.tomiyasu@example.jp"
+    },
+    {
+      "id": "5",
+      "name": "Liu Wei",
+      "age": "35",
+      "weight": "80",
+      "height": "178",
+      "location": "Beijing, China",
+      "phone": "+86-10-1234-5678",
+      "email": "liu.wei@example.cn"
+    },
+    {
+      "id": "6",
+      "name": "Daniel De Rossi",
+      "age": "27",
+      "weight": "60",
+      "height": "160",
+      "location": "Rome, Italy",
+      "phone": "+39-06-1234-5678",
+      "email": "maria.rossi@example.it"
+    }
+  ]
+}
