@@ -27,8 +27,6 @@ export const MenuButton = ({ userId, editUser, userToEdit }) => {
   };
   const handleEdit = () => {
     editUser(userId);
-    // console.log(typeof editUser);
-    // console.log(userToEdit);
     handleClose();
   };
   return (
