@@ -60,6 +60,10 @@ export const UsersTable = ({ searchQuery }) => {
     setPage(newPage);
   };
 
+  useEffect(() => {
+    setPage(1);
+  }, [searchQuery]);
+
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(searchQuery.toLowerCase())
   );

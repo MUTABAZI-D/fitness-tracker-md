@@ -25,7 +25,7 @@
       "name": "Carlos Martinez",
       "age": "24",
       "weight": "68",
-      "height": "175",
+      "height": "178",
       "location": "Madrid, Spain",
       "phone": "+34-91-123-4567",
       "email": "carlos.martinez@example.es"
@@ -42,13 +42,13 @@
     },
     {
       "id": "5",
-      "name": "Liu Wei",
+      "name": "Bruce Lee",
       "age": "35",
       "weight": "80",
-      "height": "178",
+      "height": "175",
       "location": "Beijing, China",
       "phone": "+86-10-1234-5678",
-      "email": "liu.wei@example.cn"
+      "email": "bruce.lee@example.cn"
     },
     {
       "id": "6",
@@ -59,6 +59,16 @@
       "location": "Rome, Italy",
       "phone": "+39-06-1234-5678",
       "email": "daniel.rossi@example.it"
+    },
+    {
+      "id": "7",
+      "name": "Mutabazi Dieudonne",
+      "age": "24",
+      "weight": "70",
+      "height": "193",
+      "location": "Kigali, Rwanda",
+      "phone": "+250-781-587-142",
+      "email": "mudonne18@gmail.com"
     }
   ]
 }
