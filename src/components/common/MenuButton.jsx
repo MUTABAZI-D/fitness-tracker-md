@@ -6,6 +6,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteUsers } from '../../store/usersFeature/usersThunk';
+import { toast } from 'react-toastify';
 
 const options = ['Edit', 'Delete'];
 
@@ -22,6 +23,7 @@ export const MenuButton = ({ userId, editUser, userToEdit }) => {
   const handleDelete = () => {
     dispatch(deleteUsers(userId));
     handleClose();
+    toast.success('User deleted!');
   };
   const handleEdit = () => {
     editUser(userId);
