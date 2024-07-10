@@ -23,7 +23,7 @@ export const UsersTable = ({ searchQuery }) => {
   const users = useSelector(selectUsers);
   const status = useSelector(selectUsersStatus);
   const error = useSelector(selectError);
-  const [nextId, setNextId] = useState(0);
+  const [nextId, setNextId] = useState(1);
   const [userToEdit, setUserToEdit] = useState(null);
   const [initializeId, setInitializeId] = useState(false);
   const [page, setPage] = useState(1);
