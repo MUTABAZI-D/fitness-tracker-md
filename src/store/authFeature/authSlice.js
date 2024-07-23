@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isAuthenticated: false,
+  isAuthChecked: false,
 };
 
 const authSlice = createSlice({
@@ -21,8 +22,12 @@ const authSlice = createSlice({
     deleteToken: () => {
       localStorage.removeItem('token');
     },
+    authSyncCheck: (state) => {
+      state.isAuthChecked = true;
+    },
   },
 });
 
 export default authSlice.reducer;
-export const { login, logout, generateToken, deleteToken } = authSlice.actions;
+export const { login, logout, generateToken, deleteToken, authSyncCheck } =
+  authSlice.actions;

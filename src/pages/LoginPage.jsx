@@ -23,6 +23,7 @@ export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const {

@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, logout } from '../store/authFeature/authSlice.js';
+import {
+  authSyncCheck,
+  login,
+  logout,
+} from '../store/authFeature/authSlice.js';
 
 export const AuthSync = () => {
   const dispatch = useDispatch();
@@ -9,6 +13,7 @@ export const AuthSync = () => {
     const token = localStorage.getItem('token');
     if (token) {
       dispatch(login());
+      dispatch(authSyncCheck());
     }
   }, [dispatch]);
 

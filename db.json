@@ -21,54 +21,25 @@
       "email": "jane.smith@example.co.uk"
     },
     {
-      "id": "3",
-      "name": "Carlos Martinez",
-      "age": "24",
-      "weight": "68",
-      "height": "178",
-      "location": "Madrid, Spain",
-      "phone": "+34-91-123-4567",
-      "email": "carlos.martinez@example.es"
-    },
-    {
       "id": "4",
-      "name": "Takehiro Tomiyasu",
-      "age": "29",
-      "weight": "70",
-      "height": "170",
-      "location": "Tokyo, Japan",
-      "phone": "+81-3-1234-5678",
-      "email": "takehiro.tomiyasu@example.jp"
+      "name": "John B",
+      "age": "27",
+      "weight": "78",
+      "height": "176",
+      "location": "London, UK",
+      "phone": "+44-20-1234-5678",
+      "email": "john.B@example.com"
     },
     {
       "id": "5",
-      "name": "Bruce Lee",
-      "age": "35",
-      "weight": "80",
-      "height": "175",
-      "location": "Beijing, China",
-      "phone": "+86-10-1234-5678",
-      "email": "bruce.lee@example.cn"
-    },
-    {
-      "id": "6",
-      "name": "Daniel De Rossi",
-      "age": "27",
-      "weight": "60",
-      "height": "160",
-      "location": "Rome, Italy",
-      "phone": "+39-06-1234-5678",
-      "email": "daniel.rossi@example.it"
-    },
-    {
-      "id": "8",
-      "name": "Mutabazi Dieudonne",
+      "name": "Mutabazi Didox",
       "age": "24",
-      "weight": "70",
+      "weight": "75",
       "height": "193",
       "location": "Kigali, Rwanda",
       "phone": "+250-781-587-142",
       "email": "mudonne18@gmail.com"
     }
-  ]
+  ],
+  "workouts": []
 }
