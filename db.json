@@ -34,12 +34,49 @@
       "id": "5",
       "name": "Mutabazi Didox",
       "age": "24",
-      "weight": "75",
-      "height": "193",
+      "weight": "70",
+      "height": "195",
       "location": "Kigali, Rwanda",
       "phone": "+250-781-587-142",
       "email": "mudonne18@gmail.com"
     }
   ],
-  "workouts": []
+  "workouts": [
+    {
+      "id": "1",
+      "name": "Morning run",
+      "type": "Cardio",
+      "duration": "45",
+      "caloriesBurned": "300",
+      "userId": "1",
+      "datePerformed": "2024-07-17T09:12:51+02:00"
+    },
+    {
+      "id": "2",
+      "name": "Yoga",
+      "type": "Flexibility",
+      "duration": "25",
+      "caloriesBurned": "250",
+      "userId": "2",
+      "datePerformed": "2024-07-17T09:12:52+02:00"
+    },
+    {
+      "id": "3",
+      "name": "weights lifting",
+      "type": "Strength",
+      "duration": "50",
+      "caloriesBurned": "400",
+      "userId": "4",
+      "datePerformed": "2024-07-17T09:45:10+02:00"
+    },
+    {
+      "id": "4",
+      "name": "Night run",
+      "type": "Cardio",
+      "duration": "50",
+      "caloriesBurned": "350",
+      "userId": "5",
+      "datePerformed": "2024-07-23T10:44:43+02:00"
+    }
+  ]
 }
