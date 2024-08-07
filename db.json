@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "age": "28",
+      "weight": "75",
+      "height": "180",
+      "location": "New York, USA",
+      "phone": "+1-555-1234",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "age": "32",
+      "weight": "65",
+      "height": "165",
+      "location": "London, UK",
+      "phone": "+44-20-1234-5678",
+      "email": "jane.smith@example.co.uk"
+    },
+    {
+      "id": "4",
+      "name": "John B",
+      "age": "27",
+      "weight": "78",
+      "height": "176",
+      "location": "London, UK",
+      "phone": "+44-20-1234-5678",
+      "email": "john.B@example.com"
+    },
+    {
+      "id": "5",
+      "name": "Mutabazi Didox",
+      "age": "24",
+      "weight": "70",
+      "height": "193",
+      "location": "Kigali, Rwanda",
+      "phone": "+250-781-587-142",
+      "email": "mudonne18@gmail.com"
+    }
+  ]
+}

@@ -13,4 +13,7 @@ export default defineConfig({
       terminal: true,
     }),
   ],
+  optimizeDeps: {
+    include: ['date-fns'],
+  },
 });

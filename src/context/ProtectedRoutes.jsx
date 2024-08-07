@@ -1,14 +1,16 @@
-import { Navigate } from 'react-router-dom';
-
-import PropTypes from 'prop-types';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectIsAuthenticated } from '../store/authFeature/authSelector';
+import {
+  selectIsAuthChecked,
+  selectIsAuthenticated,
+} from '../store/authFeature/authSelector';
+import { CircularProgress } from '@mui/material';
 
-export const ProtectedRoutes = ({ children }) => {
+export const ProtectedRoutes = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
-
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-};
-ProtectedRoutes.propTypes = {
-  children: PropTypes.node.isRequired,
+  const isAuthChecked = useSelector(selectIsAuthChecked);
+  if (!isAuthChecked) {
+    return <CircularProgress />;
+  }
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 };
