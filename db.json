@@ -70,13 +70,13 @@
       "datePerformed": "2024-07-17T09:45:10+02:00"
     },
     {
-      "id": "4",
+      "id": "5",
       "name": "Night run",
       "type": "Cardio",
-      "duration": "50",
-      "caloriesBurned": "350",
+      "duration": "30",
+      "caloriesBurned": "300",
       "userId": "5",
-      "datePerformed": "2024-07-23T10:44:43+02:00"
+      "datePerformed": "2024-08-23T09:25:21+02:00"
     }
   ]
 }
