@@ -9,7 +9,6 @@ import {
   Typography,
 } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import AdbIcon from '@mui/icons-material/Adb';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
 import { Link, useLocation } from 'react-router-dom';
@@ -96,36 +95,6 @@ export const Sidebar = () => {
             </ListItemIcon>
             <ListItemText
               primary="Users"
-              sx={{
-                '& .MuiListItemText-primary': {
-                  fontSize: '14px',
-                  color: 'primary.light',
-                },
-              }}
-            />
-          </ListItemButton>
-        </ListItem>
-        <ListItem component={Link} to="/workouts" sx={{ padding: 0 }}>
-          <ListItemButton
-            sx={{
-              width: '100%',
-              backgroundColor: isActive('/workouts')
-                ? 'primary.contrastText'
-                : 'inherit',
-              '&:hover': {
-                backgroundColor: isActive('/workouts')
-                  ? 'primary.contrastText'
-                  : 'action.hover',
-              },
-            }}
-          >
-            <ListItemIcon sx={{ minWidth: '36px' }}>
-              <FitnessCenterIcon
-                sx={{ fontSize: '20px', color: 'info.main' }}
-              />
-            </ListItemIcon>
-            <ListItemText
-              primary="Workouts"
               sx={{
                 '& .MuiListItemText-primary': {
                   fontSize: '14px',
