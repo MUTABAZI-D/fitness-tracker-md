@@ -13,8 +13,6 @@ import {
   MenuItem,
 } from '@mui/material';
 import PropTypes from 'prop-types';
-import { LocalizationProvider, DateTimePicker } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,13 +21,6 @@ import {
   updateWorkouts,
 } from '../../store/workoutsFeature/workoutsThunks';
 import { selectUsers } from '../../store/usersFeature/usersSelectors';
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.tz.setDefault('Africa/Kigali');
 
 const workoutTypes = ['Cardio', 'Strength', 'Flexibility'];
 
@@ -43,13 +34,25 @@ export const AddWorkoutModal = ({
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
+  const formatDate = () => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   const defaultValues = {
     name: '',
     type: '',
     duration: '',
     caloriesBurned: '',
-    userId: '',
-    datePerformed: dayjs(),
+    user: {
+      userId: '',
+      userName: '',
+      phone: '',
+    },
+    datePerformed: formatDate(),
   };
 
   const {
@@ -62,11 +65,7 @@ export const AddWorkoutModal = ({
 
   useEffect(() => {
     if (workoutToEdit) {
-      const modifiedWorkoutToEdit = {
-        ...workoutToEdit,
-        datePerformed: dayjs(workoutToEdit.datePerformed),
-      };
-      reset(modifiedWorkoutToEdit);
+      reset(workoutToEdit);
       setOpen(true);
     }
   }, [workoutToEdit, reset]);
@@ -82,19 +81,14 @@ export const AddWorkoutModal = ({
   };
 
   const onSubmit = (data) => {
-    const formattedData = {
-      ...data,
-      datePerformed: data.datePerformed.format(),
-    };
-
     if (workoutToEdit) {
-      dispatch(updateWorkouts({ ...workoutToEdit, ...formattedData }));
+      dispatch(updateWorkouts({ ...workoutToEdit, ...data }));
       handleClose();
       toast.success('Workout edited!');
     } else {
       const newWorkout = {
         id: String(nextId),
-        ...formattedData,
+        ...data,
       };
       dispatch(addWorkouts(newWorkout));
       incrementId();
@@ -108,7 +102,12 @@ export const AddWorkoutModal = ({
       <Button
         onClick={() => setOpen(true)}
         variant="contained"
-        sx={{ margin: 2 }}
+        sx={{
+          margin: 2,
+          '&:hover': {
+            opacity: 0.8,
+          },
+        }}
       >
         {workoutToEdit ? 'Edit workout' : 'Add Workout'}
       </Button>
@@ -117,13 +116,6 @@ export const AddWorkoutModal = ({
         aria-describedby="dialog-description"
         open={open}
         onClose={() => setOpen(false)}
-        maxWidth={false}
-        PaperProps={{
-          style: {
-            width: '700px',
-            maxWidth: '90%',
-          },
-        }}
       >
         <DialogTitle id="dialog-title">
           {workoutToEdit ? 'Edit workout' : 'Add Workout'}
@@ -137,7 +129,7 @@ export const AddWorkoutModal = ({
             <Stack direction="row" spacing={2}>
               <Box width="250px">
                 <Controller
-                  name="userId"
+                  name="user"
                   control={control}
                   rules={{ required: 'User ID is required' }}
                   render={({ field }) => (
@@ -147,8 +139,20 @@ export const AddWorkoutModal = ({
                       type="text"
                       select
                       fullWidth
-                      error={!!errors.userId}
-                      helperText={errors.userId?.message}
+                      error={!!errors.user}
+                      helperText={errors.user?.message}
+                      onChange={(e) => {
+                        const selectedUserId = e.target.value;
+                        const selectedUser = users.find(
+                          (user) => user.id === selectedUserId
+                        );
+                        field.onChange({
+                          userId: selectedUser.id,
+                          userName: selectedUser.name,
+                          phone: selectedUser.phone,
+                        });
+                      }}
+                      value={field.value?.userId || ''}
                     >
                       {users.map((user) => (
                         <MenuItem value={user.id} key={user.id}>
@@ -206,8 +210,8 @@ export const AddWorkoutModal = ({
                 {...register('duration', {
                   required: 'Duration is required',
                   min: {
-                    value: 1,
-                    message: 'Duration must be at least 1 minute',
+                    value: 10,
+                    message: 'Duration must be at least 10 minutes',
                   },
                 })}
                 error={!!errors.duration}
@@ -225,35 +229,13 @@ export const AddWorkoutModal = ({
                 {...register('caloriesBurned', {
                   required: 'Calories Burned is required',
                   min: {
-                    value: 1,
-                    message: 'Calories burned must be at least 1 Kcal',
+                    value: 50,
+                    message: 'Calories burned must be at least 50 Kcal',
                   },
                 })}
                 error={!!errors.caloriesBurned}
                 helperText={errors.caloriesBurned?.message}
               />
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <Controller
-                  name="datePerformed"
-                  control={control}
-                  defaultValue={dayjs()}
-                  rules={{ required: 'Date is required' }}
-                  render={({ field }) => (
-                    <DateTimePicker
-                      {...field}
-                      label="Date Performed"
-                      slotProps={{
-                        textField: {
-                          fullWidth: false,
-                          error: !!errors.datePerformed,
-                          helperText: errors.datePerformed?.message,
-                        },
-                        popper: { placement: 'auto' },
-                      }}
-                    />
-                  )}
-                />
-              </LocalizationProvider>
             </Stack>
           </Stack>
         </DialogContent>

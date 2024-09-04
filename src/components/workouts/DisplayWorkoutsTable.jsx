@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { UserActionMenu } from './UserActionMenu.jsx';
+import { WorkoutActionMenu } from './WorkoutActionMenu.jsx';
 import {
   Table,
   TableBody,
@@ -7,6 +7,8 @@ import {
   TableHead,
   TableRow,
   Stack,
+  Typography,
+  Box,
 } from '@mui/material';
 
 export const DisplayWorkoutsTable = ({
@@ -14,6 +16,22 @@ export const DisplayWorkoutsTable = ({
   editWorkout,
   workoutToEdit,
 }) => {
+  if (!currentWorkouts.length) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '200px',
+        }}
+      >
+        <Typography variant="h6" color="secondary.main">
+          No workouts found!
+        </Typography>
+      </Box>
+    );
+  }
   return (
     <>
       {' '}
@@ -26,6 +44,8 @@ export const DisplayWorkoutsTable = ({
             <TableCell>Duration</TableCell>
             <TableCell>Calories Burned</TableCell>
             <TableCell>User ID</TableCell>
+            <TableCell>User Name</TableCell>
+            <TableCell>User Phone</TableCell>
             <TableCell>Date Performed</TableCell>
           </TableRow>
         </TableHead>
@@ -37,7 +57,9 @@ export const DisplayWorkoutsTable = ({
               <TableCell>{workout.type}</TableCell>
               <TableCell>{workout.duration}</TableCell>
               <TableCell>{workout.caloriesBurned}</TableCell>
-              <TableCell>{workout.userId}</TableCell>
+              <TableCell>{workout.user.userId}</TableCell>
+              <TableCell>{workout.user.userName}</TableCell>
+              <TableCell>{workout.user.phone}</TableCell>
               <TableCell>
                 {' '}
                 <Stack
@@ -49,7 +71,7 @@ export const DisplayWorkoutsTable = ({
                   }}
                 >
                   {workout.datePerformed}{' '}
-                  <UserActionMenu
+                  <WorkoutActionMenu
                     workoutId={workout.id}
                     editWorkout={editWorkout}
                     workoutToEdit={workoutToEdit}

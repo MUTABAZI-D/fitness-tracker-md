@@ -6,10 +6,28 @@ import {
   TableHead,
   TableRow,
   Stack,
+  Typography,
+  Box,
 } from '@mui/material';
 
 import { UserActionMenu } from './UserActionMenu.jsx';
 export const DisplayUserTable = ({ currentUsers, editUser, userToEdit }) => {
+  if (!currentUsers.length) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '200px',
+        }}
+      >
+        <Typography variant="h6" color="secondary.main">
+          No users found!
+        </Typography>
+      </Box>
+    );
+  }
   return (
     <Table aria-label="simple table" stickyHeader>
       <TableHead>

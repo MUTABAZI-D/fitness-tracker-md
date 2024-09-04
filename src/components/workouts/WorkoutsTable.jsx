@@ -65,8 +65,20 @@ export const WorkoutsTable = ({ query }) => {
     setPage(1);
   }, [query]);
 
-  const filteredWorkouts = workouts.filter((workout) =>
-    workout.name.toLowerCase().includes(query.toLowerCase())
+  const [sortNotes, setSortedNotes] = useState([]);
+
+  useEffect(() => {
+    setSortedNotes(
+      [...workouts].sort((a, b) =>
+        b.datePerformed.localeCompare(a.datePerformed)
+      )
+    );
+  }, [workouts]);
+
+  const filteredWorkouts = [...sortNotes].filter(
+    (workout) =>
+      workout.name.toLowerCase().includes(query.toLowerCase()) ||
+      workout.type.toLowerCase().includes(query.toLowerCase())
   );
 
   const indexOfLastRow = page * rowsPerPage;
@@ -93,7 +105,7 @@ export const WorkoutsTable = ({ query }) => {
           color={'primary.contrastText'}
           sx={{ marginLeft: 2 }}
         >
-          WORKOUTS
+          workouts
         </Typography>
         <AddWorkoutModal
           nextId={nextId}

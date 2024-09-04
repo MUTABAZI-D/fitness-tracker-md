@@ -21,24 +21,14 @@
       "email": "jane.smith@example.co.uk"
     },
     {
-      "id": "4",
+      "id": "3",
       "name": "John B",
       "age": "27",
-      "weight": "78",
-      "height": "176",
-      "location": "London, UK",
-      "phone": "+44-20-1234-5678",
+      "weight": "75",
+      "height": "172",
+      "location": "Roma, Italy",
+      "phone": "+39-06-1234-5674",
       "email": "john.B@example.com"
-    },
-    {
-      "id": "5",
-      "name": "Mutabazi Didox",
-      "age": "24",
-      "weight": "70",
-      "height": "195",
-      "location": "Kigali, Rwanda",
-      "phone": "+250-781-587-142",
-      "email": "mudonne18@gmail.com"
     }
   ],
   "workouts": [
@@ -47,36 +37,39 @@
       "name": "Morning run",
       "type": "Cardio",
       "duration": "45",
-      "caloriesBurned": "305",
-      "userId": "1",
-      "datePerformed": "2024-07-17T09:12:51+02:00"
+      "caloriesBurned": "300",
+      "user": {
+        "userId": "1",
+        "userName": "John Doe",
+        "phone": "+1-555-1234"
+      },
+      "datePerformed": "03/09/2024"
     },
     {
       "id": "2",
       "name": "Yoga",
       "type": "Flexibility",
-      "duration": "25",
+      "duration": "40",
       "caloriesBurned": "250",
-      "userId": "2",
-      "datePerformed": "2024-07-17T09:12:52+02:00"
+      "user": {
+        "userId": "2",
+        "userName": "Jane Smith",
+        "phone": "+44-20-1234-5678"
+      },
+      "datePerformed": "03/09/2024"
     },
     {
       "id": "3",
-      "name": "weights lifting",
-      "type": "Strength",
-      "duration": "50",
-      "caloriesBurned": "400",
-      "userId": "4",
-      "datePerformed": "2024-07-17T09:45:10+02:00"
-    },
-    {
-      "id": "4",
       "name": "Night run",
       "type": "Cardio",
-      "duration": "25",
+      "duration": "30",
       "caloriesBurned": "250",
-      "userId": "5",
-      "datePerformed": "2024-08-23T10:35:36+02:00"
+      "user": {
+        "userId": "3",
+        "userName": "John B",
+        "phone": "+39-06-1234-5674"
+      },
+      "datePerformed": "04/09/2024"
     }
   ]
 }

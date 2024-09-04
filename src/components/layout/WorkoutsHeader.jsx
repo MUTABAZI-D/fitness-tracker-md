@@ -17,8 +17,13 @@ export const WorkoutsHeader = () => {
         zIndex: 2,
       }}
     >
-      <Typography variant="h4" component={'h2'} color={'primary.main'}>
-        WORKOUTS
+      <Typography
+        variant="h4"
+        component={'h2'}
+        color={'primary.main'}
+        sx={{ textTransform: 'uppercase' }}
+      >
+        workouts
       </Typography>
     </Stack>
   );
