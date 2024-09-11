@@ -48,7 +48,6 @@ export const AddWorkoutModal = ({
     duration: '',
     caloriesBurned: '',
     user: {
-      userId: '',
       userName: '',
       phone: '',
     },
@@ -134,28 +133,25 @@ export const AddWorkoutModal = ({
                   rules={{ required: 'User ID is required' }}
                   render={({ field }) => (
                     <TextField
-                      {...field}
-                      label="User"
-                      type="text"
                       select
                       fullWidth
+                      label="User"
                       error={!!errors.user}
                       helperText={errors.user?.message}
+                      value={field.value.userName || ''}
                       onChange={(e) => {
-                        const selectedUserId = e.target.value;
+                        const selectedUserName = e.target.value;
                         const selectedUser = users.find(
-                          (user) => user.id === selectedUserId
+                          (user) => user.name === selectedUserName
                         );
                         field.onChange({
-                          userId: selectedUser.id,
                           userName: selectedUser.name,
                           phone: selectedUser.phone,
                         });
                       }}
-                      value={field.value?.userId || ''}
                     >
                       {users.map((user) => (
-                        <MenuItem value={user.id} key={user.id}>
+                        <MenuItem value={user.name} key={user.id}>
                           {user.name}
                         </MenuItem>
                       ))}

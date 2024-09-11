@@ -36,40 +36,37 @@
       "id": "1",
       "name": "Morning run",
       "type": "Cardio",
-      "duration": "45",
-      "caloriesBurned": "300",
+      "duration": "30",
+      "caloriesBurned": "250",
       "user": {
-        "userId": "1",
         "userName": "John Doe",
         "phone": "+1-555-1234"
       },
-      "datePerformed": "03/09/2024"
+      "datePerformed": "11/09/2024"
     },
     {
       "id": "2",
       "name": "Yoga",
       "type": "Flexibility",
-      "duration": "40",
-      "caloriesBurned": "250",
+      "duration": "45",
+      "caloriesBurned": "300",
       "user": {
-        "userId": "2",
         "userName": "Jane Smith",
         "phone": "+44-20-1234-5678"
       },
-      "datePerformed": "03/09/2024"
+      "datePerformed": "11/09/2024"
     },
     {
       "id": "3",
-      "name": "Night run",
-      "type": "Cardio",
-      "duration": "30",
-      "caloriesBurned": "250",
+      "name": "weights lifting",
+      "type": "Flexibility",
+      "duration": "50",
+      "caloriesBurned": "350",
       "user": {
-        "userId": "3",
         "userName": "John B",
         "phone": "+39-06-1234-5674"
       },
-      "datePerformed": "04/09/2024"
+      "datePerformed": "11/09/2024"
     }
   ]
 }

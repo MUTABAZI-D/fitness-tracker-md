@@ -43,7 +43,6 @@ export const DisplayWorkoutsTable = ({
             <TableCell>Type</TableCell>
             <TableCell>Duration</TableCell>
             <TableCell>Calories Burned</TableCell>
-            <TableCell>User ID</TableCell>
             <TableCell>User Name</TableCell>
             <TableCell>User Phone</TableCell>
             <TableCell>Date Performed</TableCell>
@@ -57,7 +56,6 @@ export const DisplayWorkoutsTable = ({
               <TableCell>{workout.type}</TableCell>
               <TableCell>{workout.duration}</TableCell>
               <TableCell>{workout.caloriesBurned}</TableCell>
-              <TableCell>{workout.user.userId}</TableCell>
               <TableCell>{workout.user.userName}</TableCell>
               <TableCell>{workout.user.phone}</TableCell>
               <TableCell>
