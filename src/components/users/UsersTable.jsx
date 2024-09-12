@@ -89,7 +89,7 @@ export const UsersTable = ({ searchQuery }) => {
           color={'primary.contrastText'}
           sx={{ marginLeft: 2 }}
         >
-          USERS
+          users
         </Typography>
         <AddUserModal
           nextId={nextId}

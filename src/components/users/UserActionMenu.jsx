@@ -4,16 +4,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteUsers } from '../../store/usersFeature/usersThunk';
-import { toast } from 'react-toastify';
+import { DeleteUserModal } from './DeleteUserModal.jsx';
 
 const options = ['Edit', 'Delete'];
 
 export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const dispatch = useDispatch();
+  const [deleteModal, setDeleteModal] = useState(false);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,9 +19,8 @@ export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
     setAnchorEl(null);
   };
   const handleDelete = () => {
-    dispatch(deleteUsers(userId));
+    setDeleteModal(true);
     handleClose();
-    toast.success('User deleted!');
   };
   const handleEdit = () => {
     editUser(userId);
@@ -61,6 +58,9 @@ export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
           </MenuItem>
         ))}
       </Menu>
+      {deleteModal && (
+        <DeleteUserModal userId={userId} setDeleteModal={setDeleteModal} />
+      )}
     </div>
   );
 };

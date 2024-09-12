@@ -14,6 +14,8 @@ export const AuthSync = () => {
     if (token) {
       dispatch(login());
       dispatch(authSyncCheck());
+    } else {
+      dispatch(authSyncCheck());
     }
   }, [dispatch]);
 

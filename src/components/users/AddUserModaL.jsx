@@ -79,7 +79,12 @@ export const AddUserModal = ({
       <Button
         onClick={() => setOpen(true)}
         variant="contained"
-        sx={{ margin: 2 }}
+        sx={{
+          margin: 2,
+          '&:hover': {
+            opacity: 0.8,
+          },
+        }}
       >
         {userToEdit ? 'Edit user' : 'Add User'}
       </Button>

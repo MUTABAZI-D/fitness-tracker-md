@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthSync } from './context/AuthSync.jsx';
 import { UsersPage } from './pages/UsersPage.jsx';
+import { WorkoutsPage } from './pages/WorkoutsPage.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectUsersStatus } from './store/usersFeature/usersSelectors.js';
@@ -32,6 +33,7 @@ function App() {
           <Route element={<ProtectedRoutes />}>
             <Route path="home" element={<HomePage />} />
             <Route path="users" element={<UsersPage />} />
+            <Route path="workouts" element={<WorkoutsPage />} />
           </Route>
         </Routes>
       </Router>

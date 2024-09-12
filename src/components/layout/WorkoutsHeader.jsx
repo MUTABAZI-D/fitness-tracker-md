@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 
-export const UsersHeader = () => {
+export const WorkoutsHeader = () => {
   return (
     <Stack
       sx={{
@@ -23,7 +23,7 @@ export const UsersHeader = () => {
         color={'primary.main'}
         sx={{ textTransform: 'uppercase' }}
       >
-        users
+        workouts
       </Typography>
     </Stack>
   );
