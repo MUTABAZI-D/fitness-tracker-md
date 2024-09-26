@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "John Doe",
-      "age": "28",
+      "age": "30",
       "weight": "75",
       "height": "180",
       "location": "New York, USA",
@@ -13,7 +13,7 @@
     {
       "id": "2",
       "name": "Jane Smith",
-      "age": "32",
+      "age": "25",
       "weight": "65",
       "height": "165",
       "location": "London, UK",

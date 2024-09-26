@@ -13,18 +13,15 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { generateToken, login } from '../store/authFeature/authSlice.js';
 import { toast } from 'react-toastify';
-import { selectIsAuthenticated } from '../store/authFeature/authSelector.js';
 
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const {
     register,
@@ -50,9 +47,7 @@ export const LoginPage = () => {
       toast.error('Login failed: Incorrect username or password');
     }
   };
-  if (isAuthenticated) {
-    return <Navigate to="/home" replace />;
-  }
+
   return (
     <Box
       sx={{

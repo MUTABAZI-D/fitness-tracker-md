@@ -24,7 +24,6 @@ export const UsersTable = ({ searchQuery }) => {
   const status = useSelector(selectUsersStatus);
   const error = useSelector(selectError);
   const [nextId, setNextId] = useState(1);
-  const [userToEdit, setUserToEdit] = useState(null);
   const [initializeId, setInitializeId] = useState(false);
   const [page, setPage] = useState(1);
   const [rowsPerPage] = useState(3);
@@ -47,16 +46,7 @@ export const UsersTable = ({ searchQuery }) => {
     setNextId((prevId) => prevId + 1);
   };
 
-  const editUser = (id) => {
-    const userToEdit = users.find((user) => user.id === id);
-    setUserToEdit(userToEdit);
-  };
-
-  const removeUserToEdit = () => {
-    setUserToEdit(null);
-  };
-
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (_event, newPage) => {
     setPage(newPage);
   };
 
@@ -94,8 +84,7 @@ export const UsersTable = ({ searchQuery }) => {
         <AddUserModal
           nextId={nextId}
           incrementId={incrementId}
-          userToEdit={userToEdit}
-          removeUserToEdit={removeUserToEdit}
+          showButton={true}
         />
       </Box>
 
@@ -105,11 +94,7 @@ export const UsersTable = ({ searchQuery }) => {
           <Typography color={'error.main'}>{error}</Typography>
         )}
         {status === 'succeeded' && (
-          <DisplayUserTable
-            currentUsers={currentUsers}
-            editUser={editUser}
-            userToEdit={userToEdit}
-          />
+          <DisplayUserTable currentUsers={currentUsers} />
         )}
       </TableContainer>
       <Pagination
