@@ -20,9 +20,6 @@ import { removeUserToEDit } from '../../store/usersFeature/usersSlice';
 
 export const AddUserModal = ({ nextId, incrementId, showButton }) => {
   const [open, setOpen] = useState(false);
-  // const [showButton, setShowButton] = useState(true);
-  // console.log(setShowButton);
-  // console.log(showButton);
 
   const defaultValues = {
     name: '',
