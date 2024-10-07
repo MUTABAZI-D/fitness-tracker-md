@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUsers } from '../store/usersFeature/usersSelectors.js';
-import { Navigate, useParams } from 'react-router-dom';
+import {
+  selectUsers,
+  selectUsersStatus,
+} from '../store/usersFeature/usersSelectors.js';
+import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -12,11 +15,13 @@ import {
   Box,
   Container,
   Divider,
+  CircularProgress,
 } from '@mui/material';
 import { setUserToEdit } from '../store/usersFeature/usersSlice.js';
 import { AddUserModal } from '../components/users/AddUserModaL.jsx';
 
 export const UserDetailsPage = () => {
+  const status = useSelector(selectUsersStatus);
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -26,8 +31,8 @@ export const UserDetailsPage = () => {
     dispatch(setUserToEdit(id));
   };
 
-  if (!userDetails) {
-    return <Navigate to="/users" replace />;
+  if (status !== 'succeeded') {
+    return <CircularProgress />;
   }
   return (
     <Container

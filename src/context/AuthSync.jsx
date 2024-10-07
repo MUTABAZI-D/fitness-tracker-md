@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, logout } from '../store/authFeature/authSlice.js';
+import { login, logout, setIsLoading } from '../store/authFeature/authSlice.js';
 
 export const AuthSync = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,7 @@ export const AuthSync = () => {
     if (token) {
       dispatch(login());
     }
+    dispatch(setIsLoading(false));
   }, [dispatch]);
 
   useEffect(() => {

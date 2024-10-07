@@ -3,32 +3,32 @@
     {
       "id": "1",
       "name": "John Doe",
-      "age": "30",
-      "weight": "75",
-      "height": "180",
+      "age": 28,
+      "weight": 75,
+      "height": 180,
       "location": "New York, USA",
-      "phone": "+1-555-1234",
+      "phone": "+1 123 456 7890",
       "email": "john.doe@example.com"
     },
     {
       "id": "2",
       "name": "Jane Smith",
-      "age": "25",
-      "weight": "65",
-      "height": "165",
+      "age": 32,
+      "weight": 65,
+      "height": 165,
       "location": "London, UK",
-      "phone": "+44-20-1234-5678",
+      "phone": "+44 20 7946 0958",
       "email": "jane.smith@example.co.uk"
     },
     {
       "id": "3",
-      "name": "John B",
-      "age": "27",
-      "weight": "75",
-      "height": "172",
-      "location": "Roma, Italy",
-      "phone": "+39-06-1234-5674",
-      "email": "john.B@example.com"
+      "name": "Carlos Ruiz",
+      "age": 25,
+      "weight": 70,
+      "height": 175,
+      "location": "Madrid, Spain",
+      "phone": "+34 612 345 678",
+      "email": "carlos.ruiz@example.es"
     }
   ],
   "workouts": [
@@ -36,37 +36,37 @@
       "id": "1",
       "name": "Morning run",
       "type": "Cardio",
-      "duration": "30",
-      "caloriesBurned": "250",
+      "duration": "45",
+      "caloriesBurned": "300",
       "user": {
         "userName": "John Doe",
-        "phone": "+1-555-1234"
+        "phone": "+1 123 456 7890"
       },
-      "datePerformed": "11/09/2024"
+      "datePerformed": "06/10/2024"
     },
     {
       "id": "2",
       "name": "Yoga",
       "type": "Flexibility",
-      "duration": "45",
-      "caloriesBurned": "300",
+      "duration": "30",
+      "caloriesBurned": "200",
       "user": {
         "userName": "Jane Smith",
-        "phone": "+44-20-1234-5678"
+        "phone": "+44 20 7946 0958"
       },
-      "datePerformed": "11/09/2024"
+      "datePerformed": "06/10/2024"
     },
     {
       "id": "3",
       "name": "weights lifting",
-      "type": "Flexibility",
+      "type": "Strength",
       "duration": "50",
-      "caloriesBurned": "350",
+      "caloriesBurned": "400",
       "user": {
-        "userName": "John B",
-        "phone": "+39-06-1234-5674"
+        "userName": "Carlos Ruiz",
+        "phone": "+34 612 345 678"
       },
-      "datePerformed": "11/09/2024"
+      "datePerformed": "06/10/2024"
     }
   ]
 }
