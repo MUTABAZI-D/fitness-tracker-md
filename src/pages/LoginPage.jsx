@@ -23,7 +23,6 @@ export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const {
@@ -50,9 +49,11 @@ export const LoginPage = () => {
       toast.error('Login failed: Incorrect username or password');
     }
   };
+
   if (isAuthenticated) {
-    return <Navigate to="/home" replace />;
+    return <Navigate to={'/home'} replace />;
   }
+
   return (
     <Box
       sx={{

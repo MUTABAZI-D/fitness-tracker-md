@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { selectUsersStatus } from './store/usersFeature/usersSelectors.js';
 import { fetchUsers } from './store/usersFeature/usersThunk.js';
 import { RootRedirect } from './context/RootRedirect.jsx';
+import { UserDetailsPage } from './pages/UserDetailsPage.jsx';
 
 function App() {
   const status = useSelector(selectUsersStatus);
@@ -34,6 +35,7 @@ function App() {
             <Route path="home" element={<HomePage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="workouts" element={<WorkoutsPage />} />
+            <Route path="users/details/:id" element={<UserDetailsPage />} />
           </Route>
         </Routes>
       </Router>

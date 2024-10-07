@@ -5,27 +5,52 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { DeleteUserModal } from './DeleteUserModal.jsx';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserToEdit } from '../../store/usersFeature/usersSelectors.js';
+import { setUserToEdit } from '../../store/usersFeature/usersSlice.js';
 
-const options = ['Edit', 'Delete'];
+const options = ['Edit', 'Delete', 'Details'];
 
-export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
+export const UserActionMenu = ({ userId }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [deleteModal, setDeleteModal] = useState(false);
+  const navigate = useNavigate();
+  const userToEdit = useSelector(selectUserToEdit);
+  const dispatch = useDispatch();
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleDelete = () => {
     setDeleteModal(true);
     handleClose();
   };
-  const handleEdit = () => {
-    editUser(userId);
+  const handleUserEdit = () => {
+    dispatch(setUserToEdit(userId));
     handleClose();
   };
+
+  const handleDetails = () => {
+    navigate(`/users/details/${userId}`);
+    handleClose();
+  };
+
+  const handleOptions = (option) => {
+    if (option === 'Delete') {
+      return handleDelete;
+    } else if (option === 'Edit') {
+      return handleUserEdit;
+    } else if (option === 'Details') {
+      return handleDetails;
+    }
+  };
+
   return (
     <div>
       <IconButton
@@ -52,7 +77,7 @@ export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
           <MenuItem
             key={option}
             selected={option === 'Pyxis'}
-            onClick={option === 'Delete' ? handleDelete : handleEdit}
+            onClick={handleOptions(option)}
           >
             {option}
           </MenuItem>
@@ -67,6 +92,4 @@ export const UserActionMenu = ({ userId, editUser, userToEdit }) => {
 
 UserActionMenu.propTypes = {
   userId: PropTypes.string.isRequired,
-  editUser: PropTypes.func.isRequired,
-  userToEdit: PropTypes.object,
 };

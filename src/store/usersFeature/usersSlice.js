@@ -5,12 +5,20 @@ const initialState = {
   status: 'idle',
   users: [],
   error: null,
+  userToEdit: null,
 };
 
 const userSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    setUserToEdit: (state, action) => {
+      state.userToEdit = state.users.find((user) => user.id === action.payload);
+    },
+    removeUserToEDit: (state) => {
+      state.userToEdit = null;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
       state.status = 'loading';
@@ -39,3 +47,5 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+
+export const { setUserToEdit, removeUserToEDit } = userSlice.actions;

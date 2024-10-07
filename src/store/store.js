@@ -5,7 +5,7 @@ import authSliceReducer from './authFeature/authSlice';
 import usersSliceReducer from './usersFeature/usersSlice';
 import workoutsSliceReducer from './workoutsFeature/workoutsSlice';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     sampleSlice: sampleReducer,
     authReducer: authSliceReducer,
@@ -13,3 +13,5 @@ export const store = configureStore({
     workoutsReducer: workoutsSliceReducer,
   },
 });
+
+export default store;
