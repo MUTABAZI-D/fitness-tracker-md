@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 
 import { UserActionMenu } from './UserActionMenu.jsx';
-export const DisplayUserTable = ({ currentUsers, editUser, userToEdit }) => {
+export const DisplayUserTable = ({ currentUsers }) => {
   if (!currentUsers.length) {
     return (
       <Box
@@ -61,12 +61,7 @@ export const DisplayUserTable = ({ currentUsers, editUser, userToEdit }) => {
                   alignItems: 'center',
                 }}
               >
-                {user.email}{' '}
-                <UserActionMenu
-                  userId={user.id}
-                  editUser={editUser}
-                  userToEdit={userToEdit}
-                />
+                {user.email} <UserActionMenu userId={user.id} />
               </Stack>
             </TableCell>
           </TableRow>
@@ -78,6 +73,4 @@ export const DisplayUserTable = ({ currentUsers, editUser, userToEdit }) => {
 
 DisplayUserTable.propTypes = {
   currentUsers: PropTypes.array.isRequired,
-  editUser: PropTypes.func.isRequired,
-  userToEdit: PropTypes.object,
 };

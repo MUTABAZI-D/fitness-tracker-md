@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './assets/styles/index.css';
 import { ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import store from './store/store.js';
 import theme from './theme/main';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         <App />
       </Provider>
+      ,
     </ThemeProvider>
   </React.StrictMode>
 );
