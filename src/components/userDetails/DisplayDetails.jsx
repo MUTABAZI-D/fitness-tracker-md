@@ -28,13 +28,6 @@ export const DisplayDetails = () => {
   const { id } = useParams();
   const userDetails = users.find((user) => user.id === id);
 
-  const detailsArray = [
-    { label: 'Full Name', value: userDetails.name },
-    { label: 'Email', value: userDetails.email },
-    { label: 'Phone', value: userDetails.phone },
-    { label: 'Address', value: userDetails.location },
-  ];
-
   const handleUserEdit = () => {
     dispatch(setUserToEdit(id));
   };
@@ -46,6 +39,14 @@ export const DisplayDetails = () => {
   if (status !== 'succeeded') {
     return <CircularProgress />;
   }
+
+  const detailsArray = [
+    { label: 'Full Name', value: userDetails.name },
+    { label: 'Email', value: userDetails.email },
+    { label: 'Phone', value: userDetails.phone },
+    { label: 'Address', value: userDetails.location },
+  ];
+
   return (
     <>
       <Box
