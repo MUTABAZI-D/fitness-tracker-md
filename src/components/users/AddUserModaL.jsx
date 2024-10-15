@@ -93,7 +93,7 @@ export const AddUserModal = ({ nextId, incrementId, showButton }) => {
         aria-describedby="dialog-description"
         open={open}
         onClose={() => {
-          setOpen(false);
+          handleCancel();
         }}
       >
         <DialogTitle id="dialog-title">

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUserToEdit } from '../../store/usersFeature/usersSelectors.js';
 import { setUserToEdit } from '../../store/usersFeature/usersSlice.js';
 
-const options = ['Edit', 'Delete', 'Details'];
+const options = ['Edit', 'Delete', 'View details'];
 
 export const UserActionMenu = ({ userId }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -46,7 +46,7 @@ export const UserActionMenu = ({ userId }) => {
       return handleDelete;
     } else if (option === 'Edit') {
       return handleUserEdit;
-    } else if (option === 'Details') {
+    } else if (option === 'View details') {
       return handleDetails;
     }
   };
