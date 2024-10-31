@@ -11,17 +11,14 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUsers, updateUsers } from '../../store/usersFeature/usersThunk';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { selectUserToEdit } from '../../store/usersFeature/usersSelectors';
+import { removeUserToEDit } from '../../store/usersFeature/usersSlice';
 
-export const AddUserModal = ({
-  nextId,
-  incrementId,
-  userToEdit,
-  removeUserToEdit,
-}) => {
+export const AddUserModal = ({ nextId, incrementId, showButton }) => {
   const [open, setOpen] = useState(false);
 
   const defaultValues = {
@@ -41,6 +38,7 @@ export const AddUserModal = ({
     reset,
   } = useForm({ defaultValues });
   const dispatch = useDispatch();
+  const userToEdit = useSelector(selectUserToEdit);
 
   useEffect(() => {
     if (userToEdit) {
@@ -52,7 +50,7 @@ export const AddUserModal = ({
   const handleClose = () => {
     setOpen(false);
     reset(defaultValues);
-    removeUserToEdit();
+    dispatch(removeUserToEDit());
   };
 
   const handleCancel = () => {
@@ -76,24 +74,26 @@ export const AddUserModal = ({
   };
   return (
     <>
-      <Button
-        onClick={() => setOpen(true)}
-        variant="contained"
-        sx={{
-          margin: 2,
-          '&:hover': {
-            opacity: 0.8,
-          },
-        }}
-      >
-        {userToEdit ? 'Edit user' : 'Add User'}
-      </Button>
+      {showButton && (
+        <Button
+          onClick={() => setOpen(true)}
+          variant="contained"
+          sx={{
+            margin: 2,
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
+          {userToEdit ? 'Edit user' : 'Add User'}
+        </Button>
+      )}
       <Dialog
         aria-labelledby="dialog-title"
         aria-describedby="dialog-description"
         open={open}
         onClose={() => {
-          setOpen(false);
+          handleCancel();
         }}
       >
         <DialogTitle id="dialog-title">
@@ -223,8 +223,7 @@ export const AddUserModal = ({
 };
 
 AddUserModal.propTypes = {
-  nextId: PropTypes.number.isRequired,
-  incrementId: PropTypes.func.isRequired,
-  userToEdit: PropTypes.object,
-  removeUserToEdit: PropTypes.func.isRequired,
+  nextId: PropTypes.number,
+  incrementId: PropTypes.func,
+  showButton: PropTypes.bool.isRequired,
 };

@@ -13,6 +13,7 @@ export const HomePage = () => {
   const myData = useSelector(selectMyData);
 
   const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(getMyData());
   }, []);
