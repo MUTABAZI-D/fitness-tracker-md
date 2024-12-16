@@ -13,16 +13,25 @@ import { selectUsersStatus } from './store/usersFeature/usersSelectors.js';
 import { fetchUsers } from './store/usersFeature/usersThunk.js';
 import { RootRedirect } from './context/RootRedirect.jsx';
 import { UserDetailsPage } from './pages/UserDetailsPage.jsx';
+import { SelectWorkoutsStatus } from './store/workoutsFeature/workoutsSelectors.js';
+import { fetchWorkouts } from './store/workoutsFeature/workoutsThunks.js';
 
 function App() {
-  const status = useSelector(selectUsersStatus);
+  const usersStatus = useSelector(selectUsersStatus);
+  const workoutsStatus = useSelector(SelectWorkoutsStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (usersStatus === 'idle') {
       dispatch(fetchUsers());
     }
-  }, [status, dispatch]);
+  }, [usersStatus, dispatch]);
+
+  useEffect(() => {
+    if (workoutsStatus === 'idle') {
+      dispatch(fetchWorkouts());
+    }
+  }, [workoutsStatus, dispatch]);
 
   return (
     <>
