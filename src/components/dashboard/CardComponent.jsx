@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 export const CardComponent = ({ data, title }) => {
   return (
     <Box sx={{ minWidth: 350, marginBottom: 2 }}>
-      <Card variant="outlined" sx={{ height: 200 }}>
+      <Card sx={{ height: 200 }}>
         <CardContent>
           <Typography
             variant="h5"
