@@ -29,6 +29,16 @@
       "location": "Madrid, Spain",
       "phone": "+34 612 345 678",
       "email": "carlos.ruiz@example.es"
+    },
+    {
+      "id": "4",
+      "name": "Gedeon",
+      "age": "24",
+      "weight": "90",
+      "height": "182",
+      "location": "Kigali, Rwanda",
+      "phone": "0781587142",
+      "email": "dido@example.com"
     }
   ],
   "workouts": [
@@ -41,18 +51,6 @@
       "user": {
         "userName": "John Doe",
         "phone": "+1 123 456 7890"
-      },
-      "datePerformed": "06/10/2024"
-    },
-    {
-      "id": "2",
-      "name": "Yoga",
-      "type": "Flexibility",
-      "duration": "30",
-      "caloriesBurned": "200",
-      "user": {
-        "userName": "Jane Smith",
-        "phone": "+44 20 7946 0958"
       },
       "datePerformed": "06/10/2024"
     },
